@@ -1,4 +1,4 @@
-from pet_pals.app import db
+from atlanta_crime.app import db
 
 # db.drop_all()
 db.create_all()

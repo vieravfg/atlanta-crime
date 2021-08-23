@@ -1,1 +1,1 @@
-web: gunicorn pet_pals.app:app
+web: gunicorn atlanta_crime.app:app
