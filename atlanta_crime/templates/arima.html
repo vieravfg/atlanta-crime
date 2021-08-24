@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Inner Page - Bethany Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Bethany - v4.3.0
+  * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container">
+      <div class="header-container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <h1 class="text-light"><a href="index.html"><span>Bethany</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="../static/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="#services">Services</a></li>
+            <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+            <li><a class="nav-link scrollto" href="#team">Team</a></li>
+            <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="#">Drop Down 1</a></li>
+                <li class="dropdown"><a href="#"><span>Machine Learning</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="ml.html">Model in action</a></li>
+                      <li><a href="arima.html">ARIMA Model</a></li>
+                      <li><a href="prophet.html">Prophet Model</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Drop Down 2</a></li>
+                <li><a href="#">Drop Down 3</a></li>
+                <li><a href="#">Drop Down 4</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>ARIMA Model</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>ARIMA Model</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+       <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Time series forecasting - ARIMA Model - Summary</h1>
+            <p><b>Step 1 - Data Preparation</b></p>
+            <p>Atlanta crimes data is aggregated and sorted by date ascending, the target varible is the count of 'UCR Literal' per day.</p>
+            <pre>                    UCR Literal
+                Possible Date New                      
+                2009-01-01           13
+                2009-01-01           1
+                2009-01-01           1
+                2009-01-01           1
+                2009-01-01           3
+            </pre>
+            <p><b>Step 2 - Review Data</b></p>
+            <p>To review data, and decide if it will be a good candidate for ARIMA model, we have ran the following tests:
+                <ul>
+                    <li>Visulization</li>
+                    <li>Statistical Test</li>
+                </ul>
+            <p>Visually, we have created time series plot, seasonality decompose plot, and the ACF and PACF plots. Time series plot told us that
+            data has a downward trend in the past between 2009-2019. The downward trend shows more clearly in the seasonality decompose graph. The
+            seasonality decompose graph also indicates there might be seasonality in the data set. The ACF and PACF graph shows us the coefficient among lags.
+            </p>
+            <img src='../static/img/ARIMATimeSeriesPlot.png'/>
+            <img src='../static/img/Seasonality Check.png'/>
+            <img src='../static/img/ACF.png'/>
+            <img src='../static/img/PACF.png'/>
+            <p>Next, we did Augmented Dickey Fuller Test(ADF Test), to further confirm if the data is stationary or not. As the result below
+                indicated, P-Value is very small, and ADF value is smaller than the critical value, which indicates the data is already stationary, and we can create ARIMA model.
+            </p>
+            <pre>1. ADF :  -17.0927913983845
+                2. P-Value :  7.5703509656698e-30
+                3. Num of Lags :  64
+                4. Num of Observations Userd For ADF Regression and Critical Values Calculation : 77192
+                5. Critical VAlues :
+                     1% :  -3.4304347175545535
+                     5% :  -2.8615774437099306
+                     10% :  -2.5667899299977948
+            </pre>
+            <p><b>Step 3 - Create/Train the model</b></p>
+            <p>Using pmdarima python libarery, we were able to run auto_arima function to select the hyper parameters with the lowest AIC score. The selected parameters are (3,1,3)</p>
+            <pre>
+                Best model:  ARIMA(3,1,3)(0,0,0)[0] intercept
+                Total fit time: 36.345 seconds
+            </pre>
+            <p>Train the model with ARIMA(3,1,3)(0,0,0)[0] took about 2 hours for this dataset</p>
+            <p><b>Step 4 - Evaluate the Model</b></p>
+            <p>We split data 80/20 for train and test. The graph below shows output of the predicated test data and actual test data.</p>
+            <img src='../static/img/arimapredactual.png'/>
+            <p>The graph shows a promising predicated value, however, when we calcuated R squre, it is only 0.20. In addition, we also 
+                Calcuated RMSE score, which is about 10, and the mean of the data set is 65. It is not great, but wasn't too much off either. So we decided to go
+                ahead use the model to perform forecast for the next 2 years.
+            </p>
+            <p><b>Step 5 - Forecasting</b></p>
+            <pre>
+                            prediction
+                2020-01-01   68.634197
+                2020-01-02   66.083242
+                2020-01-03   67.557436
+                2020-01-04   67.853603
+                2020-01-05   65.158929
+                ...                ...
+                2021-12-27   57.870255
+                2021-12-28   60.070582
+                2021-12-29   58.840437
+                2021-12-30   57.161073
+                2021-12-31   59.110697      
+            </pre>
+            <img src='../static/img/ForecastingResult.png'/>
+            <p><b>What we learn</b></p>
+            <p>Beside this model, we have tried different variabion of ARIMA model such as AR, MA, ARIMAX, also attemped to aggregate data to the hourly level,
+                and adding in the zipcode as a variable. For the AR and MA, the results are not usable, for ARIMAX, our computer resource is limited and using colab, it
+                requires Pro. We did try to trim down the data set couple of times, and still were not able to make it work.
+            </p>
+            <p>Even though the model doesn't work as good as we want it to be, but we certainly leanred the process of creating a machine learning model,
+                model selection, parameter selection, train/test, evaluate the model, at the end, using the model to predict. This is very valuable lesson.
+                In addition, accepting the fact that a good model will take a lot of time to tune, train, and understand, many times we will fail, but eventually we will make something good happen.
+            </p>
+            <p>Machine learning is a very in depth topic, there are so much to learn and understand in order to make things work the way we want it to, so learning will be a 
+                life long journy in the Data Science world.
+            </p>
+            <p></p>
+        </div>
+        </div>
+        </div>
+    </section>
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Bethany</h3>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Bethany</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main JS File -->
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>
