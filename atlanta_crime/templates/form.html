@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Customers Form</title>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
@@ -34,32 +31,39 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-8">
                   <!-- ======= CONTACT DETAILS!  ======= -->
-                    <form method="POST" action="/send" role="form", name="contactform">
+                    <form method="POST" action="/api/customers" id = "add-todo", role="form", name="contactform">
                       <div class="row">
                         <div class="col-md-6 form-group">
-                          <label for="inputClientname">Name</label>
-                          <input type="text" class="form-control" name="clientname" id="inputClientname" placeholder="Your Name" required>
+                          <label for="name">Name</label>
+                          <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
                         </div>
                         <div class="col-md-6 form-group mt-3 mt-md-0">
-                          <label for="inputEmail">Email</label>
-                          <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Your Email" required>
+                          <label for="email">Email</label>
+                          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                         </div>
                       </div>
                       <div class="form-group mt-3">
-                        <label for="inputSubject">Subject</label>
-                        <input type="text" class="form-control" name="subject" id="inputSubject" placeholder="Subject" required>
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                       </div>
                       <div class="form-group mt-3">
-                        <label for="inputMessage">Message</label>
-                        <textarea type= "text" class="form-control" name="message" rows="5" id= "inputMessage" placeholder="Message" required></textarea>
+                        <label for="message">Message</label>
+                        <textarea type= "text" class="form-control" name="message" rows="5" id= "message" placeholder="Enter Message" required></textarea>
                       </div>
-                        <input type="submit" value="submit" class="btn btn-default">
+                        <button type="submit" value="submit" class="btn btn-default"> Submit </button>
                     </form>
+                    <!-- ======= CONTACT FEEDBACK!  ======= -->
+
+                    <h3 class="text-center">Here are my todos</h3>
+                    <div id="todo-list"></div>
                 </div>
+              
             </div>
 
         </div>
-
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="../static/js/main.js"></script>
     </body>
 
 </html>

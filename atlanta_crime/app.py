@@ -6,6 +6,9 @@ from flask import (
     jsonify,
     request,
     redirect)
+from flask_cors import CORS
+from pymongo import MongoClient
+import  datetime
 
 #################################################
 # Flask Setup
@@ -15,17 +18,11 @@ app = Flask(__name__)
 #################################################
 # Database Setup
 #################################################
-
-from flask_sqlalchemy import SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '') or "sqlite:///db.sqlite"
-
 # Remove tracking modifications
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-
-from .models import (
-    Client)
+app.config['MONGO_CONNECT'] = False
+CORS(app)
+client = MongoClient(os.getenv("MONGO_URI", "mongodb://localhost:27017/"))
+db = client.pytodo
 
 # create route that renders index.html template
 @app.route("/")
@@ -33,44 +30,46 @@ def home():
     return render_template("index.html")
 
 
+# create route that renders form.html template
+@app.route("/send", methods=["GET"])
+def send():
+    return render_template("form.html")
+
 # Query the database and send the jsonified results
-@app.route("/send", methods=["GET", "POST"])
-def clientsend():
+
+@app.route("/api/customers", methods = ["GET","POST"])
+def customers():
+    if request.method == "GET":
+        todos = []
+        for todo in this list(db.todos.find()):
+            todos.append({
+                "id": todo["id"]
+                "name": todo["name"],
+                "email": todo["email"],
+                "subject": todo["subject"],
+                "message": todo["message"],  
+            })
+        return jsonify(data={"status":200,"msg":"Found Subscribers", "Customers": todos})
+    
     if request.method == "POST":
-        clientname = request.form["clientname"]
+        name = request.form["name"]
         email = request.form["email"]
         subject = request.form["subject"]
         message = request.form["message"]
-
-
-        client = Client(clientname=clientname, email = email, subject=subject, message=message)
-        db.session.add(client)
-        db.session.commit()
-        return redirect("/", code=302)
-
-    return render_template("form.html")
-
-
-
-@app.route("/api/customers")
-def customers():
-    results = db.session.query(Client.clientname, Client.email, Client.subject, Client.message).all()
-
-    name = [result[0] for result in results]
-    email = [result[1] for result in results]
-    subject = [result[2] for result in results]
-    message = [result[3] for result in results]
-
-
-    client_data = [{
-        "name": name,
-        "email": email,
-        "subject": subject,
-        "message": message,    
-    }]
-
-    return jsonify(client_data)
+        
+        #insert to dabase
+        db.todos.insert_one({
+            "id": str(datetime.datetime.now().timestamp()),
+            "name": name,
+            "email": email,
+            "subject": subject,
+            "message": message
+        })
+        return jsonify(data={"status":201,"msg":"You added a customer"})
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug = True)
+
+
+   
