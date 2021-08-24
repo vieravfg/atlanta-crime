@@ -41,7 +41,7 @@ def send():
 def customers():
     if request.method == "GET":
         todos = []
-        for todo in this list(db.todos.find()):
+        for todo in list(db.todos.find()):
             todos.append({
                 "id": todo["id"]
                 "name": todo["name"],
