@@ -43,7 +43,7 @@ def customers():
         todos = []
         for todo in list(db.todos.find()):
             todos.append({
-                "id": todo["id"]
+                "id": todo["id"],
                 "name": todo["name"],
                 "email": todo["email"],
                 "subject": todo["subject"],
