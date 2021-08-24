@@ -35,6 +35,34 @@ def home():
 def send():
     return render_template("form.html")
 
+##################### Machine Learning ############################
+@app.route("/ml.html", methods=["GET"])
+def ml():
+    return render_template("ml.html")
+@app.route("/arima.html", methods=["GET"])
+def arima():
+    return render_template("arima.html")
+@app.route("/prophet.html", methods=["GET"])
+def prophet():
+    return render_template("prophet.html")
+@app.route('/prediction')
+def predication_ml():    
+# Find one record of data from database
+     df = pd.read_sql('''SELECT * FROM forecast_value''', con = engine)
+     sql_forecast = df.to_dict('records')  
+
+    if request.method == "GET":
+        forecast_value = []
+        for value in list(db.forecast_value.find()):
+            forecast_value.append({
+                "Date": value["DATE"],
+                "arima_value": value["arima_value"],
+                "prophet_value": value["prophet_value"] 
+            })
+# Return template and data
+     return jsonify(forecast_value)
+#############################################################################
+
 # Query the database and send the jsonified results
 
 @app.route("/api/customers", methods = ["GET","POST"])
