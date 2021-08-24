@@ -6,12 +6,13 @@ if (window.location.pathname === "/send"){
       url: "/api/customers",
       method: "GET",
       success: response => {
-        const data = response.data.todos;
+        const data = response.data.Customers;
         const todo_list = document.querySelector("#todo-list");
-        data.map(item=>{
-          todo_list.innerHTML +=`
+        data.map(item=> {
+          todo_list.innerHTML +=
+          `
           <p><small>${item.name}</small></p>
-          <p><small>${item.subject}</small></p>
+          <p>${item.subject}</p>
 
           `
         })
