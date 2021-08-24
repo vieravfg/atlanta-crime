@@ -5,6 +5,7 @@ class Client(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     clientname = db.Column(db.String(45))
+    email = db.Column(db.String(45))
     subject = db.Column(db.String(45))
     message = db.Column(db.String(244))
 
