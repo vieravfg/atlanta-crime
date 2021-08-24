@@ -34,7 +34,7 @@ def home():
 
 
 # Query the database and send the jsonified results
-@app.route("/form", methods=["GET", "POST"])
+@app.route("/send", methods=["GET", "POST"])
 def clientsend():
     if request.method == "POST":
         clientname = request.form["clientname"]
