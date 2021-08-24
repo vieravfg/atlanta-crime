@@ -48,9 +48,6 @@ def prophet():
 @app.route('/prediction')
 def predication_ml():    
 # Find one record of data from database
-     df = pd.read_sql('''SELECT * FROM forecast_value''', con = engine)
-     sql_forecast = df.to_dict('records')  
-
     if request.method == "GET":
         forecast_value = []
         for value in list(db.forecast_value.find()):
