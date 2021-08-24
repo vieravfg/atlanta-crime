@@ -57,7 +57,7 @@ def predication_ml():
                 "prophet_value": value["prophet_value"] 
             })
 # Return template and data
-     return jsonify(forecast_value)
+        return jsonify(forecast_value)
 #############################################################################
 
 # Query the database and send the jsonified results
