@@ -1,4 +1,5 @@
-if (window.location.pathname === "/send"){
+if (window.location.pathname === "/"){ 
+//if (window.location.pathname === "/send"){
   // api requests
   // get ll todos/customers
   function getAllTodos(){

@@ -25,13 +25,13 @@ client = MongoClient(os.getenv("MONGO_URI", "mongodb://localhost:27017/"))
 db = client.pytodo
 
 # create route that renders index.html template
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
     return render_template("index.html")
 
 
 # create route that renders form.html template
-@app.route("/send", methods=["GET"])
+@app.route("/send") #@app.route("/send", methods=["GET"])
 def send():
     return render_template("form.html")
 
