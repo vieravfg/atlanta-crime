@@ -1,7 +1,7 @@
 if (window.location.pathname === "/"){ 
 //if (window.location.pathname === "/send"){
   // api requests
-  // get ll todos/customers
+  // get all todos/customers
   function getAllTodos(){
     $.ajax({
       url: "/api/customers",
