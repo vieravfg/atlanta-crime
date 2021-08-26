@@ -10,23 +10,23 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../static/img/favicon.png" rel="icon">
-  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Bethany - v4.3.0
@@ -45,7 +45,7 @@
         <div class="logo">
           <h1 class="text-light"><a href="index.html"><span>Bethany</span></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="../static/img/logo.png" alt="" class="img-fluid"></a>-->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
 
         <nav id="navbar" class="navbar">
@@ -58,12 +58,14 @@
             <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#">Drop Down 1</a></li>
-                <li class="dropdown"><a href="#"><span>Machine Learning</span> <i class="bi bi-chevron-right"></i></a>
-                    <ul>
-                      <li><a href="ml.html">Model in action</a></li>
-                      <li><a href="arima.html">ARIMA Model</a></li>
-                      <li><a href="prophet.html">Prophet Model</a></li>
-                    </ul>
+                <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Drop Down 1</a></li>
+                    <li><a href="#">Deep Drop Down 2</a></li>
+                    <li><a href="#">Deep Drop Down 3</a></li>
+                    <li><a href="#">Deep Drop Down 4</a></li>
+                    <li><a href="#">Deep Drop Down 5</a></li>
+                  </ul>
                 </li>
                 <li><a href="#">Drop Down 2</a></li>
                 <li><a href="#">Drop Down 3</a></li>
@@ -87,59 +89,236 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Try out model</h2>
+          <h2>Time Series Forecasting - Prophet - Summary</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Model in action</li>
+            <li>Inner Page</li>
           </ol>
         </div>
+
+        <!-- ======== Step 1 ======== -->
+        <p><b>Step 1 - Data Preparation</b></p>
+        <p>We aggregated the Atlanta crimes by date and 
+          sorted by date ascending. </p>
+          <pre>                    
+            ds                   y                 
+            2009-01-01           116
+            2009-01-02           136
+            2009-01-03           113
+            2009-01-04           97
+            2009-01-05           129
+          </pre>
+
+          <!-- ======== Step 2 ======== -->
+          <p><b>Step 2 - Review Data</b></p>
+
+          <p>
+            To get a general understanding and overview of our data
+            we created a plot of crimes per date over our 10 year
+            period to see if there were any
+            noticable trends. There appeared to be a 
+            consistent trend with the crime rate gradually 
+            falling each year.
+          </p>
+          <img src="../static/img/data_overview.png" width = "650px" height = "200px">
+
+          <br>
+          <br>
+
+          <!-- ======== Step 3 ======== -->
+          <p><b>Step 3 - Model, Fit, Predict</b></p>
+          
+          <p>We first split our data into a training set and a 
+            testing set. We used 80% of our data for training and 
+            the remaining 20% for testing.
+          </p>
+          
+          <p>
+            Next we used cross validation to tune the hyperparameters.
+            Using code from the 
+            <a href="https://facebook.github.io/prophet/docs/diagnostics.html" target="_blank">Prophet diagnostics page
+            </a>
+            we found these to be the best hyperparameters for our model: 
+          </p>
+          <ul>
+            <li>Changepoint Prior Scale: 0.01</li>
+            <li>Seasonality Prior Scale: 0.01</li>
+          </ul>
+          
+          <p><u>Training Data</u></p>
+          <p>
+            We then created and fit our model using our training
+            data and the proper hyperparameters. 
+          </p>
+          <br>
+
+          <div class="row">
+
+            <div class="col-md-6 col-sm-4">
+              <img src="../static/img/first_forecast.png" width = "650px" height = "350px">
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+
+              <div class="row">
+                <img src="../static/img/weekly.png" width = "400px" height = "100px">
+              <!--<img src="/Project_Screenshots/weekly.png" width = "400px" height = "100px" style="margin-left:25px">-->
+              </div>
+
+            <br>
+
+              <div class="row">
+                <img src="../static/img/yearly.png" width = "400px" height = "100px">
+              </div>
+
+            <br>
+
+              <div class="row">
+                <img src="../static/img/monthly.png" width = "400px" height = "100px">
+              </div>
+
+            </div>
+
+          </div> <!--end of row-->
+          
+          <br>
+          <br>
+          
+
+        
+
+          <p>Scores for our training data:
+            <ul>
+              <li>R2: .55</li>
+              <li>MSE: 136.6</li>
+            </ul> 
+          </p>
+
+          <p><u>Testing Data</u></p>
+          <p>
+            We then used our model to predict values on our testing set. Our R2 value for our testing set decreased to .148.  
+          </p>
+          <p>
+          The chart below shows the actual number of crimes 
+            each day (blue) compared to the predicted number of crimes (red).
+          </p>
+          <img src="../static/img/testing_data.png" width = "900px" height = "250px">
+
+      
+<br>
+<br>
+          <p>This model seems to 
+            be more sensitive to outliers. You can see around December and January 
+            of both years there are a few outliers which drag the predicted values in 
+            February down. 
+            However, in both years crime actually 
+            increased in February. Prophet appears to be more driven by outliers than ARIMA.
+          </p>
+          <!-- ======== Step 4 ======== -->
+          <p><b>Step 4 - Forecasting</b></p>
+          
+          <p>Finally, we created and fit a model using our entire dataset and predicted the number of crimes for the following two years (2020-2021).
+          </p>
+          <br>
+         
+
+          <div class="row">
+            
+            
+            <div class="col-md-3 col-sm-6">
+              <pre>                prediction
+   2020-01-01   56.456298
+   2020-01-02   55.294014
+   2020-01-03   56.452136
+   2020-01-04   57.189774
+   2020-01-05   51.312000
+   ...                ...
+   2021-12-27   57.271766
+   2021-12-28   53.167488
+   2021-12-29   50.616308
+   2021-12-30   49.285891
+   2021-12-31   50.275311      
+</pre>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <img src="../static/img/final_forecast.png" width = "615px" height = "275px">
+            </div>
+        </div>
+        
+          <br>
+          
+            
+          
+            <p>
+              R2 value of .558. 
+
+            </p>
+
+
+          <!-- ======== Step 4 ======== -->
+          <p><b>Step 5 - What We Learned and Analysis</b></p>
+          <!--<p><u>Processing of Picking an Algorithm</u></p>
+          <p>
+            We initially tried a few different machine learning algorithmns to get a 
+            general idea of what would best work with our data. Since we had time series data over a 10
+            year period we decided to work with time series forecasting and compare two different 
+            forecasting tools ARIMA and Prophet.
+          </p>
+
+          <p>
+            Once we started working with time series forecasting we tried to bring in zipcode,
+            latitude and longitude to make a prediction of crime based on time and location. However we couldn't 
+            get these to work. Additionally, when predicting something 
+            like crime, adding more variables such as 
+            location, neighborhood, 
+            demographic information, etc.
+            leaves you at greater risk of creating a more biased model. So we decided to stick with just the date 
+            and crime count and use ARIMA and Prophet 
+            to predict the number of crimes that would occur each day.
+          </p>-->
+
+
+          <p><u>Analysis</u></p>
+          <p>
+            Compared to ARIMA, Prophet had better accuracy in predicting 
+            the correct number of crimes that occured each day. ARIMA seemed to make more 
+            conservative predictions. When comparing ARIMA's predictions 
+            on the testing set to Prophet's predictions on the testing set, you can see 
+            that the prediction line on the ARIMA model is much tighter; it was less driven by the outliers. 
+            You also see this in the final forecasting. 
+          </p>
+
+          <p><u>What We Learned and How to Improve</u></p>
+
+          <p>
+            While Prophet made more accurate predictions, the r2 score was still only a little over .50. What we learned from 
+            this is that is takes a lot of time and trial-and-error to find the best algorithmn for your data and then to find the best ways 
+            to tune and improve your model. Going forward, if we had more time to improve on our models and predictions, we would 
+            either try a new, non time series forecasting algorithm or for the Prophet model we would look more into the outliers and 
+            seasonality. With time series data and forecasting, seasonality, holidays, social and 
+            political events in the country and city are all important. With more time or going 
+            forward I would be interested to look more in depth at our outliers and see 
+            what they're telling us and how to potentially improve our model based on the 
+            findings.
+          </p>
+
+
+
+
+           
+          
+            
 
       </div>
     </section><!-- End Breadcrumbs -->
 
     <section class="inner-page">
-      <input type="date" id="start" name="trip-start"
-       value="2020-01-01"
-       min="2020-01-01" max="2021-12-31">
-       <div>ARIMA Model Forecast: </div>
-       <div>Prophet Model Forecast: </div>
-       <div>ARIMA Model</div>
-       <div class="container">
-        <div class="row">
-          <div class="col-md-12 jumbotron text-center">
-            <h1>Model Selection</h1>
-            <p></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <div class="well">
-              <h5>Test Subject ID No.:</h5>
-              <select id="selDataset" onchange="optionChanged(this.value)"></select>          
-            </div>
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Demographic Info</h3>
-                
-              </div>
-              <div id="sample-metadata" class="panel-body"></div>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div id="bar"></div>
-          </div>
-          <div class="col-md-5">
-            <div id="gauge"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div id="bubble"></div>
-          </div>
-          <label for="start">Date:</label>
-        </div>
+      <div class="container">
+        <p>
+          Example inner page template
+        </p>
+      </div>
     </section>
-
 
   </main><!-- End #main -->
 
@@ -221,17 +400,17 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor CSS Files -->
-  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="../static/js/betmain.js"></script>
+  <script src="assets/js/betmain.js"></script>
 
 </body>
 
