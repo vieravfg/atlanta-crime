@@ -31,9 +31,9 @@ def home():
 
 
 # create route that renders form.html template
-@app.route("/send") #@app.route("/send", methods=["GET"])
-def send():
-    return render_template("form.html")
+#@app.route("/send", methods=["GET"])
+#def send():
+#    return render_template("form.html")
 
 ##################### Machine Learning ############################
 @app.route("/ml.html", methods=["GET"])
@@ -90,7 +90,8 @@ def customers():
             "subject": subject,
             "message": message
         })
-        return jsonify(data={"status":201,"msg":"You added a customer"})
+        return redirect("/", code=302)
+        #return jsonify(data={"status":201,"msg":"You added a customer"})
 
 # create routes that render crime pages
 #################################################

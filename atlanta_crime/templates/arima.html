@@ -97,12 +97,12 @@
         <div class="row">
           <div class="col-md-12">
             <p><b>Step 1 - Data Preparation</b></p>
-            <p>Atlanta crimes count is aggregated at daily level and is sorted by date ascending, 
-                the target variable is the count of 'UCR Literal' per day. The date range is from 2009-01-01 to 2019-01-01.
-                We used python performed data cleaning.
+            <p>Crime count is aggregated at the daily level and is sorted by date ascending. 
+                The target variable is the count of 'UCR Literal' per day. The date range is from 2009-01-01 to 2019-01-01.
+                We used Python to perform the data cleaning.
             </p>
-            <pre>                       UCR Literal
-                Possible Date New             
+            <pre>               
+                Possible Date New          UCR Literal             
                 2009-01-01                 116
                 2009-01-02                 136
                 2009-01-03                 113
@@ -118,15 +118,17 @@
                 [4017 rows x 1 columns]
             </pre>
             <p><b>Step 2 - Review Data</b></p>
-            <p>To review data, and decide if it will be a good candidate for ARIMA model, we ran the following tests:
+            <p>To review the data, and decide if it will be a good candidate for the ARIMA model, we ran the following tests:
                 <ul>
                     <li>Visualization</li>
                     <li>Statistical Test</li>
                 </ul>
-            <p>Visually, we have created the following plots to help us understand the data. We want to understand if our data is stationary or not, and whether there is any trend or seasonality. Time series plot told us that
-            data has a downward trend in the past between 2009-2019. The downward trend shows more clearly in the seasonality decompose graph. The
-            seasonality decompose graph also indicates there might be seasonality in the data set. The ACF and PACF graph shows us the coefficient among lags. Spikes in the ACF (at low lags) indicate non-seasonal MA terms. 
-            Spikes in the PACF (at low lags) indicate possible non-seasonal AR terms. Therefore, we decide to use non-seasonal model for ARIMA.
+            <p>Visually, we have created the following plots to help us understand the data. We want to understand if our data is stationary or not, 
+            and whether there is any trend or seasonality. The time series plot tells us that
+            our data has a downward trend from 2009-2019. The downward trend is more evident in the seasonality graph. The
+            seasonality graph also indicates there might be seasonality in the data set. The ACF and PACF graph shows us the coefficient among lags. 
+            Spikes in the ACF (at low lags) indicate non-seasonal MA terms. 
+            Spikes in the PACF (at low lags) indicate possible non-seasonal AR terms. Therefore, we decided to use a non-seasonal model for ARIMA.
 
             </p>
             <div>
@@ -136,10 +138,10 @@
             <img src='../static/img/ACF.png'/>
             <img src='../static/img/PACF.png'/><br>
             <caption>Seasonality plot</caption><br>
-            <img src='../static/img/Seasonality Check.png'/ width = '600' height ='300'>
+            <img src='../static/img/Seasonality Check.png'/ width = '600' height ='400'>
             </div>         
-            <p>Next, we did Augmented Dickey Fuller Test(ADF Test), to further confirm if we can use ARIMA model or not on this data set. As the result below
-            indicated, P-Value is about 1%, and ADF value is smaller than the critical value, which indicates the data is stationary, and we can create ARIMA model.
+            <p>Next, we did Augmented Dickey Fuller Test(ADF Test) to further confirm if we could use an ARIMA model or not on this data set. As the result below
+            indicates, P-Value is about 1%, and the ADF value is smaller than the critical value. This indicates the data is stationary and that we can create an ARIMA model.
             </p>
             <pre>
             1. ADF :  -3.397984473862071
@@ -152,9 +154,10 @@
 	        10% :  -2.567156224565458
             </pre>
             <p><b>Step 3 - Fit the model</b></p>
-            <p>In this step, we first split the dataset to train and test. 80% data is used for training, and 20% is used for testing.
-                To create ARIMA model, we need to decide p, d, q three parameters, using pmdarima python 
-                library, we were able to run auto_arima function to select the hyper parameters with the lowest AIC(Akalike Information Criterion) score, the lower the AIC score, the less information is lost during the model training. The selected parameters are (4,1,3)</p>
+            <p>In this step, we split the dataset into a training set and a testing set. 80% of our data is used for training and 20% is used for testing.
+                To create the ARIMA model, we need to decide p, d, q three parameters. Using pmdarima python 
+                library, we were able to run the auto_arima function to select the hyper parameters with the lowest AIC score(Akalike 
+                Information Criterion). The lower the AIC score the less information is lost when training the model. The selected parameters are (4,1,3)</p>
             <pre>
                 Performing stepwise search to minimize aic
                 ARIMA(2,1,2)(0,0,0)[0] intercept   : AIC=31309.416, Time=2.25 sec
@@ -188,13 +191,13 @@
                Best model:  ARIMA(4,1,3)(0,0,0)[0]          
                Total fit time: 92.949 seconds
             </pre>
-            <p>Train the model with ARIMA(4,1,3)(0,0,0)[0] took about 2 hours for this dataset</p>
+            <p>Training the model with ARIMA(4,1,3)(0,0,0)[0] took about 2 hours for this dataset</p>
             <p><b>Step 4 - Evaluate the Model</b></p>
-            <p>The graph below shows output of the predicated test data and actual test data.</p>
+            <p>The graph below shows the output of the predicated test data and actual test data.</p>
             <img src='../static/img/arimapredactual.png'/>
-            <p>The graph shows a promising predicated value, however, when we calcuated R squared, it is only 0.20. In addition, we also 
-                calcuated RMSE score, which is about 10, and the mean of the data set is 65. It doesn't look great, but we decided to go
-                ahead use the model to perform forecast for the next 2 years and observe what happens.
+            <p>The graph shows a promising predicted value, however, when we calcuated R squared, it is only 0.20. In addition, we also 
+                calcuated the RMSE score, which is about 10, and the mean of the data set is 65. Our results were not optimal, but we decided to go
+                ahead with using the model to perform a forecast for the next 2 years and observe what happens.
             </p>
             <p><b>Step 5 - Forecasting</b></p>
             <pre>
@@ -213,14 +216,15 @@
             </pre>
             <img src='../static/img/ForecastingResult.png'/>
             <p><b>Valuable Lesson Learned</b></p>
-            <p>Understand data is the critical first step before creating any model. 
-            Different ML models require different characristic of data. 
+            <p>Understanding the data is the critical first step before creating any model. 
+            Different ML models require different characteristics of data. 
             If the data isn't a good candidate for certain ML models, 
             it won't work as expected even with tuning the hyper-parameters.</p>
-            <p>Even though the model didn't work as good as we want it to be, 
-            during this process, we have learned the ML project life cycle. Data gathering, cleaning, analyzing,
-            feature selection, model selection, train/test split data set, train the model, test the model, evaludate the model, and deploy the model.
-            This is a great learning experience, and certainly, this is just the beginning of a long learning journey, and we are very excited for what other things we will learn.</p>     
+            <p>Even though the model wasn't as accurate as we expected, 
+             we learned the ML process. Data gathering, cleaning, analyzing,
+            feature selecting, training, testing, evaluating, and deploying the model.
+            This was a great learning experience, and certainly, this is just the beginning of a long learning journey. 
+            We are very excited to expand our knowledge moving forward.</p>     
         </div>
         </div>
         </div>
