@@ -247,57 +247,39 @@
             </p>
 
 
-          <!-- ======== Step 4 ======== -->
-          <p><b>Step 5 - What We Learned and Analysis</b></p>
-          <!--<p><u>Processing of Picking an Algorithm</u></p>
-          <p>
-            We initially tried a few different machine learning algorithmns to get a 
-            general idea of what would best work with our data. Since we had time series data over a 10
-            year period we decided to work with time series forecasting and compare two different 
-            forecasting tools ARIMA and Prophet.
-          </p>
-
-          <p>
-            Once we started working with time series forecasting we tried to bring in zipcode,
-            latitude and longitude to make a prediction of crime based on time and location. However we couldn't 
-            get these to work. Additionally, when predicting something 
-            like crime, adding more variables such as 
-            location, neighborhood, 
-            demographic information, etc.
-            leaves you at greater risk of creating a more biased model. So we decided to stick with just the date 
-            and crime count and use ARIMA and Prophet 
-            to predict the number of crimes that would occur each day.
-          </p>-->
+          <!-- ======== Step 5 ======== -->
+        
+          <p><b>Step 5 - Analysis and What We Learned</b></p>
 
 
           <p><u>Analysis</u></p>
           <p>
             Compared to ARIMA, Prophet had better accuracy in predicting 
-            the correct number of crimes that occured each day. ARIMA seemed to make more 
-            conservative predictions. When comparing ARIMA's predictions 
+            the correct number of crimes that occurred each day. When comparing ARIMA's predictions 
             on the testing set to Prophet's predictions on the testing set, you can see 
-            that the prediction line on the ARIMA model is much tighter; it was less driven by the outliers. 
-            You also see this in the final forecasting. 
+            that the predictions the ARIMA model made are more conservative than Prophet's predictions; 
+            it was less driven by the outliers. 
+            You also see this in the interactive graph, on the "Our Model" page, which shows the two predictions together. The models predict 
+            very similar shapes and patterns, but the ARIMA model has a more stable mean whereas 
+            the Prophet model is much more varied in its predictions. However, they both show a general 
+            downward trend.
           </p>
 
           <p><u>What We Learned and How to Improve</u></p>
 
           <p>
             While Prophet made more accurate predictions, the r2 score was still only a little over .50. What we learned from 
-            this is that is takes a lot of time and trial-and-error to find the best algorithmn for your data and then to find the best ways 
-            to tune and improve your model. Going forward, if we had more time to improve on our models and predictions, we would 
-            either try a new, non time series forecasting algorithm or for the Prophet model we would look more into the outliers and 
-            seasonality. With time series data and forecasting, seasonality, holidays, social and 
-            political events in the country and city are all important. With more time or going 
-            forward I would be interested to look more in depth at our outliers and see 
-            what they're telling us and how to potentially improve our model based on the 
-            findings.
+            this is that it takes a lot of time and trial-and-error to find the best method for your data and then to find the best ways 
+            to tune and improve your model.
           </p>
 
-
-
-
-           
+          <p>
+            Going forward, if we had more time to improve our models and predictions, we would 
+            either try a new, non-time series forecasting model or, for the Prophet model, we would look into the outliers. We would be interested to learn more about seasonality and holidays in Prophet and how to potentially 
+            incorporate more hyperparameters based on our outliers and/or seasonal trends. Overall we learned a lot about the 
+            machine learning process and are
+            excited to learn more moving forward.
+          </p>
           
             
 
