@@ -60,7 +60,7 @@
                 <li><a href="/page5">Crime Time and Type</a></li>
                 <li class="dropdown"><a href="#"><span>Machine Learning</span> <i class="bi bi-chevron-right"></i></a>
                   <ul>
-                    <li><a href="/arima.html">Arima</a></li>
+                    <li><a href="/arima.html">ARIMA</a></li>
                     <li><a href="/prophet.html">Prophet</a></li>
                     <li><a href="/ml.html">Machine Learning</a></li>
 
@@ -200,9 +200,9 @@
       <div class="container">
 
         <div class="text-center" data-aos="zoom-in">
-          <h3>Art imitates life </h3>
-          <p>Top IMDB suggestions for crime genre.</p>
-          <a class="cta-btn" href="https://www.imdb.com/search/title/?genres=crime&explore=title_type,genres&title_type=tvSeries" target="_blank">Go to their Website</a>
+          <h3>Stay Updated</h3>
+          <p>Live crime reportings in Atlanta</p>
+          <a class="cta-btn" href="https://www.atlantapd.org/about-apd/news" target="_blank">Go to their Website</a>
         </div>
 
       </div>
@@ -257,7 +257,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--carbon" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" data-icon="carbon:information"><path d="M17 22v-8h-4v2h2v6h-3v2h8v-2h-3z" fill="currentColor"></path><path d="M16 8a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 8z" fill="currentColor"></path><path d="M16 30a14 14 0 1 1 14-14a14 14 0 0 1-14 14zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4z" fill="currentColor"></path></svg>
                   </div>
 
-                  <h4><a href="https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/">More Information</a></h4>
+                  <h4><a href="https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/" target="_blank">More Information</a></h4>
                   <p>Learn more about how Machine Learning can lead to bias when predicting crime.</p>
                 </div>
               </div>
@@ -370,7 +370,7 @@
       <div class="container aos-init aos-animate" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Tools used</h2>
+          <h2>process</h2>
         </div>
 
         <ul class="faq-list accordion aos-init aos-animate" data-aos="fade-up">
@@ -379,53 +379,49 @@
             <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq1">How did we clean the data? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq1" class="collapse" data-bs-parent=".faq-list">
               <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                Used Jupyter notebook and pandas library to clean and transform the raw data from Atlanta Police website. There were two datasets that had over 300,000 plus rows combined. As part of the cleaning process a few columns were deleted and transformed to have the right data type. Analysis and filters were applied to the dataset to output a final csv file.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed">How did we get our Database working? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed">How did we create our visualizations? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq2" class="collapse" data-bs-parent=".faq-list">
               <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+              Used Tableau Public to perform analysis and create visualizations of our dataset.
               </p>
             </div>
           </li>
-
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq4" class="collapsed">How did we used Machine Learning? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq4" class="collapsed">How did we use Machine Learning? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq4" class="collapse" data-bs-parent=".faq-list">
               <p>
-                write here
-              </p>
+                Used Atlanta's crime data from 2009 to 2019 to create ARIMA and Prophet machine learning models to predict crime counts by day for 2020-01-01 to 2021-12-31. The predicted value saved in MongoDB facilitated a user interface to select a date range in order to see predictions.              </p>
+            </div>
+          </li>
+          <li>
+            <a data-bs-toggle="collapse" data-bs-target="#faq3" class="collapsed">How did we get our database working? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p>We deployed our database by creating a free cluster through a MongoDB cloud platform then created collections using predicted values from machine learning.     </p>
             </div>
           </li>
 
+          
+
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq5" class="collapsed">How did we deploy our website? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq5" class="collapse" data-bs-parent=".faq-list">
               <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                We deployed our website by using github and heroku as our hosting platforms. Used HTML, CSS and JavaScript to create the content and structure of our web pages. Within Heroku, we created a connection to our MongoDB database for users to interact with predicted values from Machine learning. The Flask App was used to connect our websites and MongDB data to connect to each other and share data.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq6" class="collapsed">How did we interact with the users? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq6" class="collapse" data-bs-parent=".faq-list">
               <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-              </p>
+                Users can submit feedback using the message box in our website. This data is collected and transferred to MongoDB database through the Flask app.              </p>
             </div>
           </li>
 
@@ -471,7 +467,7 @@
                   <div class="member-info">
                     <h4>Caroline Larry</h4>
                     <span></span>
-                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+                    <p>Focused on building machine learning models and Tableau visualizations.</p>
                     <div class="social">
                       <a href="https://github.com/carolinelarry" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i></a>
                       <a href="https://www.linkedin.com/in/caroline-larry-9112b0187/" target="_blank" rel="noopener noreferrer"> <i class="ri-linkedin-box-fill"></i> </a>
@@ -493,7 +489,7 @@
                   <div class="member-info">
                     <h4>Viera Garcia</h4>
                     <span></span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                    <p>Focused on creating and deploying the website and setting up a MongoDB database.  </p>
                     <div class="social">
                       <a href="https://github.com/vieravfg" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i></a>
                       <a href="https://www.linkedin.com/in/vierafga/" target="_blank" rel="noopener noreferrer"> <i class="ri-linkedin-box-fill"></i> </a>
@@ -508,7 +504,7 @@
                   <div class="member-info">
                     <h4>Ricardo</h4>
                     <span></span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                    <p>Focused on cleaning, building and creating cloud databases. </p>
                     <div class="social">
                       <a href="https://github.com/RRbenitez77" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i></a>
                       <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
@@ -523,7 +519,7 @@
                   <div class="member-info">
                     <h4>Tianyue Yang</h4>
                     <span></span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                    <p>Focused on creating Tableau visualizations, building ARIMA ML models and publishing results. </p>
                     <div class="social">
                       <a href="https://github.com/yangty152" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i></a>
                       <a href="https://www.linkedin.com/in/tianyue-yang-44138610/" target="_blank" rel="noopener noreferrer"> <i class="ri-linkedin-box-fill"></i> </a>
@@ -537,7 +533,7 @@
                   <div class="member-info">
                     <h4>Jennifer Gaddie</h4>
                     <span></span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                    <p>Focused on creating Tableau visualizations and cleaning data.</p>
                     <div class="social">
                       <a href="https://github.com/gigilynne" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i></a>
                       <a href="http://linkedin.com/in/jennifergaddie" target="_blank" rel="noopener noreferrer"> <i class="ri-linkedin-box-fill"></i> </a>
@@ -551,7 +547,7 @@
                   <div class="member-info">
                     <h4>Chithra Mohana Sundaram</h4>
                     <span></span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                    <p>Focused on analyzing data and creating Tableau visualizations. </p>
                     <div class="social">
                       <a href="https://github.com/Chithra1996" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i></a>
                       <a href="https://www.linkedin.com/in/chithra-mohanasundaram" target="_blank" rel="noopener noreferrer"> <i class="ri-linkedin-box-fill"></i> </a>
@@ -580,7 +576,6 @@
           </div>
 
           <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.4212752831195!2d-84.3984736847922!3d33.775617780682126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5048aebc34fe3%3A0xb52ad03e3ad8c50f!2sGeorgia%20Institute%20of%20Technology!5e0!3m2!1sen!2sus!4v1629894679468!5m2!1sen!2sus" width="600" height="450" style="border:0; width: 100%; height: 270px;" src="" frameborder="0" allowfullscreen></iframe>
             <!-- =============== Form ================= -->
 
             <form method="POST" action="/api/customers" id="add-todo" role="form" class="php-email-form mt-4" name="contactform" >
@@ -639,20 +634,10 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Data Sources</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://www.atlantapd.org/home/showpublisheddocument/3587/637418951324270000
-                ">Atlanta's Crime Data 2020</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://www.atlantapd.org/home/showpublisheddocument/4230">Atlantas's Crime Data 2021</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://www.atlantapd.org/home/showpublisheddocument/3051/637141450644130000">Atlantas's Crime Data 2009 - 2019</a></li>
-
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.atlantapd.org/i-want-to/crime-data-downloads
+                " target="_blank">Atlanta's Crime Data </a></li>
+              
             </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
           </div>
 
         </div>

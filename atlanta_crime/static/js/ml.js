@@ -28,13 +28,28 @@ d3.json("/prediction").then(prediction_ml => {
         filters.enddate = new Date(filters.enddate);
         //call seaerch function to return filtered data 
         var filteredData = result.filter(pred => (new Date(pred.Date) >= filters.startdate)&&new Date(pred.Date)<=filters.enddate);
-        console.log(filteredData);
         //display filtered data in the html table
         tbody = d3.select("tbody")
         var date =[];
         var arima_result = [];
         var prophet_result = [];
+        function convertUTCDateToLocalDate(date) {
+            var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
+        
+            var offset = date.getTimezoneOffset() / 60;
+            var hours = date.getHours();
+        
+            newDate.setHours(hours - offset);
+        
+            return newDate;   
+        }
         filteredData.forEach(function(row){
+            row.Date = convertUTCDateToLocalDate(new Date(row.Date));
+            row.Date = new Date(row.Date);
+            year = row.Date.getFullYear();
+            month = row.Date.getMonth()+1;
+            d = row.Date.getDate();
+            row.Date = `${year}-${month}-${d}`;
             date.push(row.Date);
             arima_result.push(row.arima_value);
             prophet_result.push(row.prophet_value);
@@ -44,10 +59,6 @@ d3.json("/prediction").then(prediction_ml => {
                 cell.text(value);
                 });
         });
-        //console.log(date);
-        //console.log(arima_result);
-        //console.log(prophet_result);
-        //console.log(filteredData);
         var trace1 = {
             x: date,
             y: arima_result,
@@ -65,8 +76,6 @@ d3.json("/prediction").then(prediction_ml => {
           var data = [trace1, trace2];
           var layout = {
             title:'Compare ARIMA and Prophet Results',
-            
-
           };
           Plotly.newPlot('myDiv', data,layout);
     };
