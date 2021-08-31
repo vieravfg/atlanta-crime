@@ -8,9 +8,7 @@ Analyzed Atlanta crime data from 2009 to 2019 and 2020 to 2021. We identified cr
 
 ### Datasets:
 
-We used crime data available on the Atlanta Police Department's website: 
-
-https://www.atlantapd.org/i-want-to/crime-data-downloads
+We used crime data available on the Atlanta Police Department's website: https://www.atlantapd.org/i-want-to/crime-data-downloads
 
 ### Tools Used:
 - Python
