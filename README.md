@@ -1,6 +1,7 @@
 # Atlanta Crime Analysis
 
 <img width="1428" alt="Screen Shot 2021-08-31 at 2 20 01 PM" src="https://user-images.githubusercontent.com/79863465/131563055-2fd73271-d592-4bcc-b8bd-0be0de1c4aa2.png">
+
 ### Deployment
 Our app is available on Heroku:
 https://atlanta-crime.herokuapp.com/
